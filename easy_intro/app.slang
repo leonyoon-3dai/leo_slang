@@ -10,7 +10,6 @@ void blit(
     Tensor<float3, 2> input,
     RWTexture2D<float4> output)
 {
-    uint[2] shape = input.shape;
     float3 col = input.getv(uint2(pixel));
     // sRGB 톤매핑 없이 그대로 출력 (saturate 만 적용해서 안전).
     col = saturate(col);

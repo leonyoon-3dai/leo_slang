@@ -17,7 +17,9 @@ float3 render(int2 pixel, int2 resolution)
 
     // 8 칸짜리 격자.
     float2 cell = floor(p * 8.0f);
-    float checker = fmod(cell.x + cell.y, 2.0f);
+    // HLSL/Slang fmod 는 피제수(dividend) 부호를 따르므로
+    // cell 합이 음수이면 -1 이 나올 수 있다. abs 로 항상 [0, 1] 로 맞춘다.
+    float checker = abs(fmod(cell.x + cell.y, 2.0f));
 
     float3 a = float3(0.92f, 0.92f, 0.92f);
     float3 b = float3(0.15f, 0.20f, 0.30f);

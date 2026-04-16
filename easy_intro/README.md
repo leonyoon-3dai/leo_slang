@@ -97,7 +97,8 @@ return lerp(bg, circle, inside);
 
 ```hlsl
 float2 cell = floor(p * 8.0f);
-float checker = fmod(cell.x + cell.y, 2.0f);
+// fmod 는 피제수 부호를 따르므로 abs 로 항상 [0, 1] 범위 보장
+float checker = abs(fmod(cell.x + cell.y, 2.0f));
 return lerp(a, b, checker);
 ```
 
