@@ -6,6 +6,12 @@ Materials for the Neural Shading Course at SIGGRAPH 2025. This repository contai
 
 This course covers the fundamentals of neural shading using Slang. The materials include both Python-based examples using `slangpy` and C++ implementations for high-performance neural network training on GPU.
 
+## 2026-05-14 Codex 점검 메모
+
+- 이 repo는 neural rendering을 shader/compiler 관점에서 배우는 자료입니다. TorchCode가 PyTorch tensor 구현, LeetCUDA가 CUDA kernel 구현이라면, neural-shading-s25는 Slang/autodiff/GPU shader pipeline 쪽에 가깝습니다.
+- macOS에서는 Metal/Vulkan 지원 범위와 Slang backend를 먼저 확인해야 하며, cooperative vector 예제는 NVIDIA Windows/Linux 하드웨어 전제가 있습니다. 기능 학습과 성능 검증을 분리해서 보는 것이 안전합니다.
+- 학습 순서는 autodiff -> mipmap/texture filtering -> small network -> frequency encoding -> latent texture -> hardware acceleration 순서가 자연스럽습니다.
+
 ## Directory Structure
 
 ```
